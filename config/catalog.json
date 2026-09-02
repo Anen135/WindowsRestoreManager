@@ -1,7 +1,7 @@
 {
   "$schema": "./catalog.schema.json",
   "schemaVersion": 3,
-  "updated": "2026-09-02",
+  "updated": "2026-09-03",
   "notes": [
     "Sources are tried by ascending priority.",
     "If a WinGet install fails and a Chocolatey source is configured, Chocolatey is tried automatically.",
@@ -811,6 +811,32 @@
       ]
     },
     {
+      "key": "betterdiscord",
+      "name": "BetterDiscord",
+      "group": "Communication",
+      "description": "Discord client modification with plugins and themes",
+      "defaultScope": "User",
+      "homepage": "https://betterdiscord.app/",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "BetterDiscord/Installer",
+          "release": "latest",
+          "assetPattern": "BetterDiscord-Installer-Windows.exe",
+          "installMode": "installer",
+          "priority": 30
+        },
+        {
+          "type": "manual",
+          "url": "https://betterdiscord.app/",
+          "priority": 90
+        }
+      ],
+      "registryNames": [
+        "BetterDiscord"
+      ]
+    },
+    {
       "key": "teams",
       "name": "Microsoft Teams",
       "group": "Communication",
@@ -1187,6 +1213,27 @@
       ]
     },
     {
+      "key": "gource",
+      "name": "Gource",
+      "group": "Development",
+      "description": "Software version control visualization tool",
+      "defaultScope": "User",
+      "homepage": "https://github.com/acaudwell/Gource",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "acaudwell/Gource",
+          "release": "gource-0.53",
+          "assetPattern": "gource-0.53.win64.zip",
+          "installMode": "portable",
+          "priority": 30
+        }
+      ],
+      "registryNames": [
+        "Gource"
+      ]
+    },
+    {
       "key": "golang",
       "name": "Go",
       "group": "Development",
@@ -1438,6 +1485,30 @@
       "registryNames": [
         "Node.js",
         "Node.js LTS"
+      ]
+    },
+    {
+      "key": "php",
+      "name": "PHP 8.5",
+      "group": "Development",
+      "description": "PHP scripting language runtime",
+      "defaultScope": "Auto",
+      "homepage": "https://www.php.net/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "PHP.PHP.8.5",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "php",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "PHP 8.5",
+        "PHP"
       ]
     },
     {
@@ -2676,7 +2747,7 @@
     {
       "key": "mullvad",
       "name": "Mullvad VPN",
-      "group": "Network & Remote",
+      "group": "VPN",
       "description": "VPN client",
       "defaultScope": "Auto",
       "homepage": "",
@@ -2699,7 +2770,7 @@
     {
       "key": "protonvpn",
       "name": "Proton VPN",
-      "group": "Network & Remote",
+      "group": "VPN",
       "description": "VPN client",
       "defaultScope": "Auto",
       "homepage": "",
@@ -2945,6 +3016,27 @@
       ]
     },
     {
+      "key": "zapret-discord-youtube",
+      "name": "Zapret Discord YouTube",
+      "group": "Network & Remote",
+      "description": "Windows network filtering utility for Discord and YouTube connectivity",
+      "defaultScope": "User",
+      "homepage": "https://github.com/Flowseal/zapret-discord-youtube",
+      "sources": [
+        {
+          "type": "github",
+          "repo": "Flowseal/zapret-discord-youtube",
+          "release": "latest",
+          "assetPattern": "zapret-discord-youtube-*.zip",
+          "installMode": "portable",
+          "priority": 30
+        }
+      ],
+      "registryNames": [
+        "Zapret Discord YouTube"
+      ]
+    },
+    {
       "key": "acrobat-reader",
       "name": "Adobe Acrobat Reader",
       "group": "Productivity",
@@ -3149,6 +3241,48 @@
       ],
       "registryNames": [
         "Malwarebytes"
+      ]
+    },
+    {
+      "key": "avz",
+      "name": "AVZ",
+      "group": "Security",
+      "description": "System analysis and anti-malware utility",
+      "defaultScope": "User",
+      "homepage": "https://z-oleg.com/secur/avz/",
+      "sources": [
+        {
+          "type": "portable",
+          "url": "https://z-oleg.com/avz4.zip",
+          "priority": 30
+        }
+      ],
+      "registryNames": [
+        "AVZ"
+      ]
+    },
+    {
+      "key": "hijackthis-plus",
+      "name": "HiJackThis+",
+      "group": "Security",
+      "description": "Advanced Windows startup, browser and system diagnostic utility",
+      "defaultScope": "User",
+      "homepage": "https://github.com/dragokas/hijackthis",
+      "sources": [
+        {
+          "type": "portable",
+          "url": "https://dragokas.com/tools/HiJackThis.zip",
+          "priority": 30
+        },
+        {
+          "type": "manual",
+          "url": "https://www.softportal.com/getsoft-46610-hijackthis-fork-2.html",
+          "priority": 90
+        }
+      ],
+      "registryNames": [
+        "HiJackThis+",
+        "HiJackThis Fork"
       ]
     },
     {
@@ -3594,6 +3728,34 @@
       ]
     },
     {
+      "key": "process-monitor",
+      "name": "Process Monitor",
+      "group": "System & Utilities",
+      "description": "Sysinternals real-time file system, Registry and process monitor",
+      "defaultScope": "Auto",
+      "homepage": "https://learn.microsoft.com/sysinternals/downloads/procmon",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.Sysinternals.ProcessMonitor",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "procmon",
+          "priority": 20
+        },
+        {
+          "type": "manual",
+          "url": "https://www.softportal.com/getsoft-17885-process-monitor-2.html",
+          "priority": 90
+        }
+      ],
+      "registryNames": [
+        "Process Monitor"
+      ]
+    },
+    {
       "key": "rainmeter",
       "name": "Rainmeter",
       "group": "System & Utilities",
@@ -3834,6 +3996,241 @@
       ],
       "registryNames": [
         "WizTree"
+      ]
+    },
+    {
+      "key": "rolla",
+      "name": "ROLLA",
+      "group": "Games",
+      "description": "B-movie-inspired horror arcade destruction game by pantaloon",
+      "defaultScope": "User",
+      "homepage": "https://pantaloon-io.itch.io/rolla",
+      "sources": [
+        {
+          "type": "manual",
+          "url": "https://pantaloon-io.itch.io/rolla",
+          "priority": 90
+        }
+      ],
+      "registryNames": [
+        "ROLLA"
+      ]
+    },
+    {
+      "key": "hidemyname",
+      "name": "hidemy.name VPN",
+      "group": "VPN",
+      "description": "hidemy.name VPN client for Windows",
+      "defaultScope": "Machine",
+      "homepage": "https://hide.services/",
+      "sources": [
+        {
+          "type": "installer",
+          "url": "https://hide.services/files/software/hidemyname_3.3.246.exe",
+          "runAsAdmin": true,
+          "priority": 30
+        }
+      ],
+      "registryNames": [
+        "hidemy.name VPN"
+      ]
+    },
+    {
+      "key": "nordvpn",
+      "name": "NordVPN",
+      "group": "VPN",
+      "description": "Nord Security VPN client",
+      "defaultScope": "Machine",
+      "homepage": "https://nordvpn.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "NordSecurity.NordVPN",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "NordVPN"
+      ]
+    },
+    {
+      "key": "surfshark",
+      "name": "Surfshark",
+      "group": "VPN",
+      "description": "Surfshark VPN client",
+      "defaultScope": "Machine",
+      "homepage": "https://surfshark.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Surfshark.Surfshark",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Surfshark"
+      ]
+    },
+    {
+      "key": "windscribe",
+      "name": "Windscribe",
+      "group": "VPN",
+      "description": "Windscribe VPN client",
+      "defaultScope": "Auto",
+      "homepage": "https://windscribe.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Windscribe.Windscribe",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Windscribe"
+      ]
+    },
+    {
+      "key": "expressvpn",
+      "name": "ExpressVPN",
+      "group": "VPN",
+      "description": "ExpressVPN client",
+      "defaultScope": "Machine",
+      "homepage": "https://www.expressvpn.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "ExpressVPN.ExpressVPN",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "ExpressVPN"
+      ]
+    },
+    {
+      "key": "private-internet-access",
+      "name": "Private Internet Access",
+      "group": "VPN",
+      "description": "Private Internet Access (PIA) VPN client",
+      "defaultScope": "Machine",
+      "homepage": "https://www.privateinternetaccess.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "PrivateInternetAccess.PrivateInternetAccess",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Private Internet Access"
+      ]
+    },
+    {
+      "key": "amneziavpn",
+      "name": "AmneziaVPN",
+      "group": "VPN",
+      "description": "Open-source VPN client with self-hosted VPN support",
+      "defaultScope": "Auto",
+      "homepage": "https://amnezia.org/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "AmneziaVPN.AmneziaVPN",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "AmneziaVPN"
+      ]
+    },
+    {
+      "key": "adguard-vpn",
+      "name": "AdGuard VPN",
+      "group": "VPN",
+      "description": "AdGuard VPN client",
+      "defaultScope": "Machine",
+      "homepage": "https://adguard-vpn.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "AdGuard.AdGuardVPN",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "AdGuard VPN"
+      ]
+    },
+    {
+      "key": "ivpn",
+      "name": "IVPN",
+      "group": "VPN",
+      "description": "IVPN desktop client",
+      "defaultScope": "Auto",
+      "homepage": "https://www.ivpn.net/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "IVPN.IVPN",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "IVPN"
+      ]
+    },
+    {
+      "key": "mozilla-vpn",
+      "name": "Mozilla VPN",
+      "group": "VPN",
+      "description": "Mozilla VPN client",
+      "defaultScope": "Auto",
+      "homepage": "https://www.mozilla.org/products/vpn/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Mozilla.VPN",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Mozilla VPN"
+      ]
+    },
+    {
+      "key": "tunnelbear",
+      "name": "TunnelBear",
+      "group": "VPN",
+      "description": "TunnelBear VPN client",
+      "defaultScope": "Auto",
+      "homepage": "https://www.tunnelbear.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "TunnelBear.TunnelBear",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "TunnelBear"
+      ]
+    },
+    {
+      "key": "hide-me",
+      "name": "hide.me VPN",
+      "group": "VPN",
+      "description": "hide.me VPN client",
+      "defaultScope": "Auto",
+      "homepage": "https://hide.me/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "eVenture.HideMe",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "hide.me VPN"
       ]
     }
   ]

@@ -3,6 +3,26 @@
 All notable changes to Windows Restore Manager TUI are documented in this file.
 The format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [3.2.8] - 2026-09-03
+
+### Added
+
+- New `installer` catalog source type for direct EXE/MSI installer packages
+  downloaded over HTTP(S).
+- The installer file is validated by its binary header (true EXE/MSI) before
+  it is run; `.msi` packages are installed through `msiexec.exe /i`.
+- Optional `installerArgs`, `runAsAdmin`, `successExitCodes` and `sha256`
+  fields for installer sources. Reboot-requesting exit codes `1641`/`3010`
+  are always treated as success.
+- Direct installer sources can be used in `apps install`, `apps uninstall`
+  (via a registered uninstall entry matching `registryNames`) and
+  `apps upgrade`.
+- Source override and profile source selection support an `installer|URL`
+  type.
+- Catalog validation for installer sources (HTTP/HTTPS URL and SHA-256 format).
+- New `config/installer-source-example.json` documenting the `installer`
+  source schema.
+
 ## [3.2.7] - 2026-09-03
 
 ### Fixed

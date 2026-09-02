@@ -823,6 +823,21 @@ function Get-AppSourcesText {
                 $parts += "choco[$repo]:$($source.id)"
             }
             'portable' { $parts += 'portable' }
+            'installer' {
+                $installerName = ''
+                try {
+                    $installerName = [IO.Path]::GetFileName(([Uri][string]$source.url).AbsolutePath)
+                }
+                catch {
+                    $installerName = [string]$source.url
+                }
+
+                if ([string]::IsNullOrWhiteSpace($installerName)) {
+                    $installerName = [string]$source.url
+                }
+
+                $parts += "installer:$installerName"
+            }
             'github'   {
                 $release = $(if ($source.release) { [string]$source.release } else { 'latest' })
                 $asset = $(if ($source.assetPattern) { [string]$source.assetPattern } elseif ($source.assetRegex) { [string]$source.assetRegex } else { '*' })
@@ -907,13 +922,264 @@ function Convert-GoogleDriveUrl {
 
 
 
+function Save-DirectInstallerFile {
+    param(
+        $App,
+        $Source,
+        [string]$DestinationDirectory
+    )
+
+    $url = [string]$Source.url
+
+    if ([string]::IsNullOrWhiteSpace($url) -or $url -notmatch '^https?://') {
+        throw "Installer source for '$($App.key)' must use an HTTP/HTTPS URL."
+    }
+
+    $downloadUrl = Convert-GoogleDriveUrl $url
+    $handler = New-Object System.Net.Http.HttpClientHandler
+    $handler.AllowAutoRedirect = $true
+
+    $client = New-Object System.Net.Http.HttpClient($handler)
+    $client.Timeout = [TimeSpan]::FromMinutes(30)
+    $client.DefaultRequestHeaders.UserAgent.ParseAdd('WindowsRestoreManager/3.2.8')
+
+    $response = $null
+
+    try {
+        Write-ManagerLog "Downloading installer for $($App.name): $url"
+        $response = $client.GetAsync($downloadUrl).GetAwaiter().GetResult()
+
+        if (-not $response.IsSuccessStatusCode) {
+            throw "HTTP $([int]$response.StatusCode) $($response.ReasonPhrase)"
+        }
+
+        $contentType = [string]$response.Content.Headers.ContentType
+        if ($contentType -match 'text/html') {
+            throw 'Installer URL returned HTML instead of a binary file.'
+        }
+
+        $fileName = $null
+
+        if ($response.Content.Headers.ContentDisposition) {
+            $fileName = [string]$response.Content.Headers.ContentDisposition.FileNameStar
+
+            if ([string]::IsNullOrWhiteSpace($fileName)) {
+                $fileName = [string]$response.Content.Headers.ContentDisposition.FileName
+            }
+        }
+
+        if (-not [string]::IsNullOrWhiteSpace($fileName)) {
+            $fileName = [IO.Path]::GetFileName($fileName.Trim('"'))
+        }
+
+        if ([string]::IsNullOrWhiteSpace($fileName)) {
+            try {
+                $fileName = [IO.Path]::GetFileName(([Uri]$downloadUrl).AbsolutePath)
+            }
+            catch {
+                $fileName = ''
+            }
+        }
+
+        if ([string]::IsNullOrWhiteSpace($fileName)) {
+            $safeKey = ([string]$App.key -replace '[^\w\.\-]','_')
+            $fileName = "$safeKey.download"
+        }
+
+        $destination = Join-Path $DestinationDirectory $fileName
+
+        [IO.File]::WriteAllBytes(
+            $destination,
+            $response.Content.ReadAsByteArrayAsync().GetAwaiter().GetResult()
+        )
+    }
+    finally {
+        if ($response) { $response.Dispose() }
+        if ($client) { $client.Dispose() }
+        if ($handler) { $handler.Dispose() }
+    }
+
+    if (-not (Test-Path -LiteralPath $destination -PathType Leaf)) {
+        throw "Installer was not written to '$destination'."
+    }
+
+    if ($Source.sha256) {
+        $expected = ([string]$Source.sha256).Trim().ToLowerInvariant()
+
+        if ($expected -notmatch '^[0-9a-f]{64}$') {
+            throw "Invalid SHA-256 value configured for '$($App.key)'."
+        }
+
+        $actual = (Get-FileHash -LiteralPath $destination -Algorithm SHA256).Hash.ToLowerInvariant()
+
+        if ($actual -ne $expected) {
+            throw "SHA-256 mismatch for downloaded installer '$fileName'."
+        }
+
+        Write-ManagerLog "SHA-256 verified for installer '$fileName'." 'OK'
+    }
+
+    $ext = [IO.Path]::GetExtension($destination).ToLowerInvariant()
+
+    if ($ext -notin @('.exe','.msi')) {
+        $stream = [IO.File]::OpenRead($destination)
+
+        try {
+            $header = New-Object byte[] 8
+            $read = $stream.Read($header,0,$header.Length)
+        }
+        finally {
+            $stream.Dispose()
+        }
+
+        $isExe = ($read -ge 2 -and $header[0] -eq 0x4D -and $header[1] -eq 0x5A)
+        $isMsi = (
+            $read -ge 8 -and
+            $header[0] -eq 0xD0 -and
+            $header[1] -eq 0xCF -and
+            $header[2] -eq 0x11 -and
+            $header[3] -eq 0xE0 -and
+            $header[4] -eq 0xA1 -and
+            $header[5] -eq 0xB1 -and
+            $header[6] -eq 0x1A -and
+            $header[7] -eq 0xE1
+        )
+
+        if ($isExe) {
+            $renamed = "$destination.exe"
+            Move-Item -LiteralPath $destination -Destination $renamed -Force
+            $destination = $renamed
+        }
+        elseif ($isMsi) {
+            $renamed = "$destination.msi"
+            Move-Item -LiteralPath $destination -Destination $renamed -Force
+            $destination = $renamed
+        }
+        else {
+            throw 'Direct installer source must resolve to an EXE or MSI file.'
+        }
+    }
+
+    return $destination
+}
+
+
+function Invoke-DirectInstallerProcess {
+    param(
+        [string]$InstallerPath,
+        $Source
+    )
+
+    $ext = [IO.Path]::GetExtension($InstallerPath).ToLowerInvariant()
+    $installerArgs = @()
+
+    if ($Source.PSObject.Properties.Name -contains 'installerArgs' -and $Source.installerArgs) {
+        $installerArgs = @($Source.installerArgs | ForEach-Object { [string]$_ })
+    }
+
+    $runAsAdmin = $false
+    if ($Source.PSObject.Properties.Name -contains 'runAsAdmin') {
+        $runAsAdmin = [bool]$Source.runAsAdmin
+    }
+
+    $start = @{
+        Wait = $true
+        PassThru = $true
+        ErrorAction = 'Stop'
+    }
+
+    if ($ext -eq '.exe') {
+        $start.FilePath = $InstallerPath
+
+        if ($installerArgs.Count -gt 0) {
+            $start.ArgumentList = $installerArgs
+        }
+    }
+    elseif ($ext -eq '.msi') {
+        $start.FilePath = 'msiexec.exe'
+        $msiArgs = @('/i', ('"{0}"' -f $InstallerPath))
+
+        if ($installerArgs.Count -gt 0) {
+            $msiArgs += $installerArgs
+        }
+
+        $start.ArgumentList = $msiArgs
+    }
+    else {
+        throw "Unsupported installer file type '$ext'."
+    }
+
+    if ($runAsAdmin) {
+        $start.Verb = 'RunAs'
+    }
+
+    $process = Start-Process @start
+
+    return [pscustomobject]@{
+        ExitCode = [int]$process.ExitCode
+        ProcessId = [int]$process.Id
+    }
+}
+
+
+function Install-DirectInstallerSource {
+    param(
+        $App,
+        $Source
+    )
+
+    $temp = Join-Path $env:TEMP ("RestoreManager-Installer-" + [guid]::NewGuid().ToString('N'))
+    New-Item -ItemType Directory -Path $temp -Force | Out-Null
+
+    try {
+        $installer = Save-DirectInstallerFile `
+            -App $App `
+            -Source $Source `
+            -DestinationDirectory $temp
+
+        Write-ManagerLog "Launching installer '$([IO.Path]::GetFileName($installer))' for $($App.name)..."
+
+        $result = Invoke-DirectInstallerProcess `
+            -InstallerPath $installer `
+            -Source $Source
+
+        $successCodes = @(0, 1641, 3010)
+
+        if ($Source.PSObject.Properties.Name -contains 'successExitCodes' -and $Source.successExitCodes) {
+            $successCodes = @($Source.successExitCodes | ForEach-Object { [int]$_ })
+        }
+
+        if ($result.ExitCode -in $successCodes) {
+            if ($result.ExitCode -in @(1641,3010)) {
+                Write-ManagerLog "Installer for $($App.name) succeeded and requested a reboot (exit $($result.ExitCode)). No reboot was started." 'WARN'
+            }
+            else {
+                Write-ManagerLog "Installer completed for $($App.name)." 'OK'
+            }
+
+            return $true
+        }
+
+        Write-ManagerLog "Installer failed for $($App.name) with exit code $($result.ExitCode)." 'WARN'
+        return $false
+    }
+    catch {
+        Write-ManagerLog "Installer source failed for $($App.name): $($_.Exception.Message)" 'WARN'
+        return $false
+    }
+    finally {
+        Remove-Item -LiteralPath $temp -Recurse -Force -ErrorAction SilentlyContinue
+    }
+}
+
+
 function New-GitHubHttpClient {
     $handler = New-Object System.Net.Http.HttpClientHandler
     $handler.AllowAutoRedirect = $true
 
     $client = New-Object System.Net.Http.HttpClient($handler)
     $client.Timeout = [TimeSpan]::FromMinutes(30)
-    $client.DefaultRequestHeaders.UserAgent.ParseAdd('WindowsRestoreManager/3.2.5')
+    $client.DefaultRequestHeaders.UserAgent.ParseAdd('WindowsRestoreManager/3.2.8')
     $client.DefaultRequestHeaders.Accept.ParseAdd('application/vnd.github+json')
 
     if (-not [string]::IsNullOrWhiteSpace([string]$env:GITHUB_TOKEN)) {
@@ -1052,7 +1318,7 @@ function Save-GitHubReleaseAsset {
     $handler.AllowAutoRedirect = $true
     $client = New-Object System.Net.Http.HttpClient($handler)
     $client.Timeout = [TimeSpan]::FromMinutes(30)
-    $client.DefaultRequestHeaders.UserAgent.ParseAdd('WindowsRestoreManager/3.2.5')
+    $client.DefaultRequestHeaders.UserAgent.ParseAdd('WindowsRestoreManager/3.2.8')
 
     if (-not [string]::IsNullOrWhiteSpace([string]$env:GITHUB_TOKEN)) {
         [void]$client.DefaultRequestHeaders.TryAddWithoutValidation(
@@ -1493,6 +1759,14 @@ function Install-App {
                 }
             }
 
+            'installer' {
+                if (Install-DirectInstallerSource -App $App -Source $source) {
+                    return $true
+                }
+
+                Write-ManagerLog "Direct installer failed for $($App.name); trying next configured source." 'WARN'
+            }
+
             'github' {
                 if (Install-GitHubSource -App $App -Source $source) {
                     return $true
@@ -1741,6 +2015,17 @@ function Uninstall-App {
             $chocoInventory = $afterChoco
         }
 
+        if ($type -eq 'installer') {
+            $attempted = $true
+
+            if (Invoke-RegisteredUninstallForApp -App $App) {
+                return $true
+            }
+
+            $script:LastUninstallReason = 'Direct installer package has no usable exact registered uninstall entry, or its uninstaller failed.'
+            Write-ManagerLog $script:LastUninstallReason 'WARN'
+        }
+
         if ($type -eq 'github') {
             $installMode = $(if ($source.installMode) { ([string]$source.installMode).ToLowerInvariant() } else { 'portable' })
 
@@ -1842,6 +2127,15 @@ function Upgrade-App {
 
             if ($result.ExitCode -eq 0) {
                 Write-ManagerLog "Upgrade completed for $($App.name) through WinGet." 'OK'
+                return $true
+            }
+        }
+
+        if ($type -eq 'installer') {
+            Write-ManagerLog "Checking direct installer source for upgrade of $($App.name)..."
+
+            if (Install-DirectInstallerSource -App $App -Source $source) {
+                Write-ManagerLog "Upgrade completed for $($App.name) through direct installer." 'OK'
                 return $true
             }
         }
@@ -2193,7 +2487,7 @@ function Parse-SourceOverride {
     $type = $parts[0].Trim().ToLowerInvariant()
     $value2 = $(if ($parts.Count -gt 1) { $parts[1].Trim() } else { '' })
 
-    if ($parts.Count -eq 1 -and $type -in @('auto','choco','winget','portable','github','manual')) {
+    if ($parts.Count -eq 1 -and $type -in @('auto','choco','winget','portable','installer','github','manual')) {
         return [pscustomobject]@{ type=$type; forceOnly=$true; priority=1 }
     }
 
@@ -2206,6 +2500,9 @@ function Parse-SourceOverride {
         }
         'portable' {
             return [pscustomobject]@{ type='portable'; url=$value2; priority=1 }
+        }
+        'installer' {
+            return [pscustomobject]@{ type='installer'; url=$value2; priority=1 }
         }
         'github' {
             return [pscustomobject]@{
@@ -2221,7 +2518,7 @@ function Parse-SourceOverride {
         }
         default {
             # "vscode = choco" means force the existing Chocolatey source.
-            if ($type -in @('auto','choco','winget','portable','github','manual')) {
+            if ($type -in @('auto','choco','winget','portable','installer','github','manual')) {
                 return [pscustomobject]@{ type=$type; forceOnly=$true; priority=1 }
             }
             throw "Invalid source override '$Value'."
@@ -2834,8 +3131,26 @@ function Test-RestoreCatalog {
                 $errors += "Missing package ID: $($app.key) / $($source.type)"
             }
 
-            if ($source.type -in @('portable','manual') -and [string]::IsNullOrWhiteSpace([string]$source.url)) {
+            if ($source.type -in @('portable','installer','manual') -and [string]::IsNullOrWhiteSpace([string]$source.url)) {
                 $errors += "Missing URL: $($app.key) / $($source.type)"
+            }
+
+            if ($source.type -eq 'installer') {
+                if ([string]$source.url -notmatch '^https?://') {
+                    $errors += "Installer URL must use HTTP/HTTPS: $($app.key)"
+                }
+
+                if ($source.sha256 -and [string]$source.sha256 -notmatch '^[0-9A-Fa-f]{64}$') {
+                    $errors += "Invalid installer SHA-256: $($app.key)"
+                }
+
+                if ($source.successExitCodes) {
+                    foreach ($code in @($source.successExitCodes)) {
+                        if ($code -isnot [int] -and [string]$code -notmatch '^-?\d+$') {
+                            $errors += "Invalid installer success exit code: $($app.key) / $code"
+                        }
+                    }
+                }
             }
 
             if ($source.type -eq 'github') {

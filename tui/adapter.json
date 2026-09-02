@@ -1,7 +1,7 @@
 {
   "id": "tui",
   "name": "PowerShell Console TUI",
-  "version": "3.2.7",
+  "version": "3.2.8",
   "entrypoint": "RestoreTui.ps1",
   "backend": "../RestoreCli.ps1",
   "protocol": "restore-cli-json-v1",

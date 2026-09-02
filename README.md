@@ -11,14 +11,15 @@ features and settings, and running declarative restore profiles.
 This distribution contains only the backend/CLI and the PowerShell console TUI.
 No WPF GUI is included.
 
-> **Note (3.2.7):** for application management, start the TUI from a normal
+> **Note (3.2.8):** for application management, start the TUI from a normal
 > PowerShell window. Windows feature/system operations still require an
 > elevated (Administrator) console.
 
 ## Features
 
 - Install / uninstall / upgrade applications through **WinGet**,
-  **Chocolatey**, **portable packages** and **GitHub Releases**.
+  **Chocolatey**, **portable packages**, **GitHub Releases** and **direct
+  EXE/MSI installers**.
 - Scope-aware WinGet handling (`user` vs `machine`).
 - Enable/disable Windows optional features (SSH client, WSL, Hyper-V, telnet, ...).
 - Toggle allow-listed Windows settings (file extensions, hidden files,
@@ -69,9 +70,29 @@ Get CLI help:
 - `protocol/restore-cli-json-v1.schema.json` — JSON protocol between the CLI
   and the TUI.
 - `config/github-source-example.json` — example of a GitHub Releases source.
+- `config/installer-source-example.json` — example of a direct EXE/MSI
+  installer source.
 
-Catalog sources support WinGet, Chocolatey, portable downloads and GitHub
-Releases.
+Catalog sources support WinGet, Chocolatey, portable downloads, GitHub
+Releases and direct EXE/MSI installers.
+
+### Direct EXE/MSI installer sources
+
+A direct installer source (`"type": "installer"`) downloads a single
+`.exe` or `.msi` file over HTTP(S) and runs it. Supported fields:
+
+- `url` — HTTP/HTTPS download URL (required).
+- `installerArgs` — optional arguments passed to the installer (e.g.
+  `["/S"]` for EXE or `["/qn", "/norestart"]` for MSI).
+- `runAsAdmin` — launch the installer elevated (UAC prompt).
+- `successExitCodes` — exit codes treated as success (default programs that
+  request a reboot, `1641`/`3010`, are always handled).
+- `sha256` — optional verify the downloaded file's SHA-256 before running.
+
+The file is validated to be a real EXE/MSI by its header before it is
+launched (a `.msi` URL is always run through `msiexec.exe /i`). Uninstall /
+upgrade of these packages relies on a registered uninstall entry matching the
+catalog entry's `registryNames`.
 
 ## Architecture
 
@@ -89,6 +110,7 @@ RestoreManager.Core
       +-- Chocolatey
       +-- portable packages
       +-- GitHub Releases
+      +-- direct EXE/MSI installers
       +-- Windows features/settings
 ```
 

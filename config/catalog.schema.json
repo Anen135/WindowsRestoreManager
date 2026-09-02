@@ -133,6 +133,48 @@
                   "type": "object",
                   "required": [
                     "type",
+                    "url"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "installer"
+                    },
+                    "url": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "^https?://"
+                    },
+                    "installerArgs": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "runAsAdmin": {
+                      "type": "boolean"
+                    },
+                    "successExitCodes": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      },
+                      "minItems": 1,
+                      "uniqueItems": true
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9A-Fa-f]{64}$"
+                    },
+                    "priority": {
+                      "type": "integer"
+                    }
+                  },
+                  "additionalProperties": true
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "type",
                     "repo"
                   ],
                   "properties": {

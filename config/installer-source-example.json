@@ -1,0 +1,28 @@
+{
+  "examples": [
+    {
+      "type": "installer",
+      "url": "https://example.org/setup.exe",
+      "installerArgs": [
+        "/S"
+      ],
+      "runAsAdmin": true,
+      "successExitCodes": [
+        0,
+        3010
+      ],
+      "sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+      "priority": 30
+    },
+    {
+      "type": "installer",
+      "url": "https://example.org/setup.msi",
+      "installerArgs": [
+        "/qn",
+        "/norestart"
+      ],
+      "runAsAdmin": true,
+      "priority": 30
+    }
+  ]
+}

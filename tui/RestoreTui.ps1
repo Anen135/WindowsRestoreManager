@@ -362,7 +362,7 @@ function Show-TuiMessage {
 
     $width = Get-SafeWidth
 
-    Write-TuiLine (Fit-Text " Windows Restore Manager TUI 3.2.7 - $Title " $width) Black Cyan
+    Write-TuiLine (Fit-Text " Windows Restore Manager TUI 3.2.8 - $Title " $width) Black Cyan
     Write-TuiLine ''
 
     foreach ($line in $Lines) {
@@ -463,7 +463,7 @@ function Draw-OperationScreen {
 
     Begin-TuiFrame
 
-    Write-TuiLine (Fit-Text ' Windows Restore Manager TUI 3.2.7 - operation ' $width) Black Cyan
+    Write-TuiLine (Fit-Text ' Windows Restore Manager TUI 3.2.8 - operation ' $width) Black Cyan
     Write-TuiLine ''
     Write-TuiLine (Fit-Text ("  {0} {1}" -f $spinner, $Title) $width) Cyan
     Write-TuiLine ''
@@ -716,7 +716,7 @@ function Draw-Header {
         else { $tabText += " $($script:Tabs[$i]) " }
     }
     $adminText = if ($script:IsAdmin) { 'Admin' } else { 'Standard' }
-    Write-TuiLine (Fit-Text " Windows Restore Manager TUI 3.2.7 | $adminText | RestoreCli.ps1 " $width) Black Cyan
+    Write-TuiLine (Fit-Text " Windows Restore Manager TUI 3.2.8 | $adminText | RestoreCli.ps1 " $width) Black Cyan
     Write-TuiLine (Fit-Text (" " + ($tabText -join '  ')) $width) White DarkBlue
 }
 
@@ -1137,7 +1137,7 @@ function Clear-TuiNavigationBacklog {
 # Main loop
 # ---------------------------------------------------------------------------
 try {
-    [Console]::Title = 'Windows Restore Manager TUI 3.2.7 TUI'
+    [Console]::Title = 'Windows Restore Manager TUI 3.2.8 TUI'
     [Console]::TreatControlCAsInput = $true
     [Console]::CursorVisible = $false
     Refresh-Profiles
@@ -1234,7 +1234,7 @@ catch {
         }
 
         @(
-            "Windows Restore Manager TUI 3.2.7"
+            "Windows Restore Manager TUI 3.2.8"
             "Time: $((Get-Date).ToString('o'))"
             "PowerShell: $($PSVersionTable.PSVersion)"
             "Host: $($Host.Name)"
