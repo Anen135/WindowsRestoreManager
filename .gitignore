@@ -1,1 +1,17 @@
+# Runtime / logs
 logs/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating system
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# PowerShell / temp files
+*.tmp
+*.bak

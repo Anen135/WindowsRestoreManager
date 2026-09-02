@@ -1,4 +1,7 @@
-﻿[CmdletBinding()]
+﻿# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Windows Restore Manager
+#
+[CmdletBinding()]
 param(
     [Parameter(Position=0)][string]$Command = 'help',
     [Parameter(Position=1)][string]$Action = '',

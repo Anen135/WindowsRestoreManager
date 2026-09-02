@@ -1,4 +1,7 @@
-﻿$script:catalogData = $null
+﻿# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Windows Restore Manager
+#
+$script:catalogData = $null
 $script:catalogApps = @()
 $script:CatalogPath = $null
 $script:BasePath = $null
