@@ -1,0 +1,23 @@
+{
+  "examples": [
+    {
+      "type": "github",
+      "repo": "owner/repository",
+      "release": "latest",
+      "assetPattern": "*windows*x64*.zip",
+      "installMode": "portable",
+      "priority": 30
+    },
+    {
+      "type": "github",
+      "repo": "owner/repository",
+      "release": "v1.2.3",
+      "assetRegex": "(?i)setup.*x64\\.exe$",
+      "installMode": "installer",
+      "installerArgs": [
+        "/S"
+      ],
+      "priority": 30
+    }
+  ]
+}

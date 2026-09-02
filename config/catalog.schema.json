@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "catalog.schema.json",
+  "title": "Windows Restore Manager application catalog",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "applications"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 3
+    },
+    "updated": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "applications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "name",
+          "group",
+          "sources"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._-]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "group": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string"
+          },
+          "defaultScope": {
+            "enum": [
+              "Auto",
+              "User",
+              "Machine"
+            ]
+          },
+          "homepage": {
+            "type": "string"
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "id"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "winget"
+                    },
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "priority": {
+                      "type": "integer"
+                    },
+                    "repository": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "id"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "choco"
+                    },
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "priority": {
+                      "type": "integer"
+                    },
+                    "repository": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "url"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "portable"
+                    },
+                    "url": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "priority": {
+                      "type": "integer"
+                    }
+                  },
+                  "additionalProperties": true
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "repo"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "github"
+                    },
+                    "repo": {
+                      "type": "string",
+                      "minLength": 3,
+                      "pattern": "^[^/\\s]+/[^/\\s]+$"
+                    },
+                    "release": {
+                      "type": "string",
+                      "minLength": 1,
+                      "description": "latest or an exact Git tag."
+                    },
+                    "assetPattern": {
+                      "type": "string",
+                      "minLength": 1,
+                      "description": "PowerShell wildcard matched against GitHub release asset names."
+                    },
+                    "assetRegex": {
+                      "type": "string",
+                      "minLength": 1,
+                      "description": "Regular expression matched against GitHub release asset names. Takes precedence over assetPattern."
+                    },
+                    "installMode": {
+                      "enum": [
+                        "portable",
+                        "installer"
+                      ]
+                    },
+                    "installerArgs": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "priority": {
+                      "type": "integer"
+                    }
+                  },
+                  "additionalProperties": true
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "url"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "manual"
+                    },
+                    "url": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "priority": {
+                      "type": "integer"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              ]
+            }
+          },
+          "registryNames": {
+            "type": "array",
+            "description": "Exact Windows uninstall DisplayName values accepted for installed-state detection. Matching is case-insensitive but otherwise exact.",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

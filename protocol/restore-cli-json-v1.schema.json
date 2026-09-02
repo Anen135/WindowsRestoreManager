@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "restore-cli-json-v1.schema.json",
+  "title": "Windows Restore Manager CLI response envelope",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "ok",
+    "operation",
+    "timestamp",
+    "data",
+    "warnings",
+    "error"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "ok": {
+      "type": "boolean"
+    },
+    "operation": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "data": {},
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "error": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

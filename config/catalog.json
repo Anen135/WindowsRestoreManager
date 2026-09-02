@@ -1,0 +1,3840 @@
+{
+  "$schema": "./catalog.schema.json",
+  "schemaVersion": 3,
+  "updated": "2026-09-02",
+  "notes": [
+    "Sources are tried by ascending priority.",
+    "If a WinGet install fails and a Chocolatey source is configured, Chocolatey is tried automatically.",
+    "Manual sources open the publisher page and require user interaction.",
+    "Package availability can change over time; use Refresh/Validate sources in the manager.",
+    "Registry detection uses exact case-insensitive DisplayName matches from registryNames only; no fuzzy matching."
+  ],
+  "applications": [
+    {
+      "key": "claude",
+      "name": "Claude",
+      "group": "AI",
+      "description": "Anthropic Claude desktop",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Anthropic.Claude",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Claude"
+      ]
+    },
+    {
+      "key": "cursor",
+      "name": "Cursor",
+      "group": "AI",
+      "description": "AI code editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Anysphere.Cursor",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Cursor"
+      ]
+    },
+    {
+      "key": "antigravity",
+      "name": "Google Antigravity IDE",
+      "group": "AI",
+      "description": "Google Antigravity IDE",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Google.AntigravityIDE",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Google Antigravity IDE",
+        "Antigravity"
+      ]
+    },
+    {
+      "key": "windsurf",
+      "name": "Windsurf",
+      "group": "AI",
+      "description": "AI development environment",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Codeium.Windsurf",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Windsurf"
+      ]
+    },
+    {
+      "key": "arc",
+      "name": "Arc",
+      "group": "Browsers",
+      "description": "Arc browser for Windows",
+      "defaultScope": "User",
+      "homepage": "https://arc.net/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "TheBrowserCompany.Arc",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Arc"
+      ]
+    },
+    {
+      "key": "brave",
+      "name": "Brave",
+      "group": "Browsers",
+      "description": "Privacy-focused Chromium browser",
+      "defaultScope": "Auto",
+      "homepage": "https://brave.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Brave.Brave",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "brave",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Brave"
+      ]
+    },
+    {
+      "key": "brave-beta",
+      "name": "Brave Beta",
+      "group": "Browsers",
+      "description": "Brave beta channel",
+      "defaultScope": "Auto",
+      "homepage": "https://brave.com/download-beta/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Brave.Brave.Beta",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Brave Beta"
+      ]
+    },
+    {
+      "key": "browseros",
+      "name": "BrowserOS",
+      "group": "Browsers",
+      "description": "Open-source agentic browser",
+      "defaultScope": "Auto",
+      "homepage": "https://www.browseros.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "BrowserOS.BrowserOS",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "BrowserOS"
+      ]
+    },
+    {
+      "key": "cent-browser",
+      "name": "Cent Browser",
+      "group": "Browsers",
+      "description": "Feature-rich Chromium browser",
+      "defaultScope": "Auto",
+      "homepage": "https://www.centbrowser.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "CentStudio.CentBrowser",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Cent Browser"
+      ]
+    },
+    {
+      "key": "chromium",
+      "name": "Chromium",
+      "group": "Browsers",
+      "description": "Stable Chromium build",
+      "defaultScope": "Auto",
+      "homepage": "https://www.chromium.org/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Hibbiki.Chromium",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Chromium"
+      ]
+    },
+    {
+      "key": "duckduckgo-browser",
+      "name": "DuckDuckGo Browser",
+      "group": "Browsers",
+      "description": "Privacy-focused browser by DuckDuckGo",
+      "defaultScope": "User",
+      "homepage": "https://duckduckgo.com/windows",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "DuckDuckGo.DesktopBrowser",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "DuckDuckGo Browser"
+      ]
+    },
+    {
+      "key": "firefox-devedition",
+      "name": "Firefox Developer Edition",
+      "group": "Browsers",
+      "description": "Firefox developer channel",
+      "defaultScope": "Auto",
+      "homepage": "https://www.mozilla.org/firefox/developer/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Mozilla.Firefox.DeveloperEdition",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Firefox Developer Edition"
+      ]
+    },
+    {
+      "key": "floorp",
+      "name": "Floorp",
+      "group": "Browsers",
+      "description": "Firefox-based browser",
+      "defaultScope": "Auto",
+      "homepage": "https://floorp.app/en/download/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Ablaze.Floorp",
+          "priority": 10
+        },
+        {
+          "type": "manual",
+          "url": "https://floorp.app/en/download/",
+          "priority": 90
+        }
+      ],
+      "registryNames": [
+        "Floorp"
+      ]
+    },
+    {
+      "key": "chrome",
+      "name": "Google Chrome",
+      "group": "Browsers",
+      "description": "Google Chromium-based browser",
+      "defaultScope": "Machine",
+      "homepage": "https://www.google.com/chrome/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Google.Chrome",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "googlechrome",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Google Chrome"
+      ]
+    },
+    {
+      "key": "chrome-beta",
+      "name": "Google Chrome Beta",
+      "group": "Browsers",
+      "description": "Google Chrome beta channel",
+      "defaultScope": "Machine",
+      "homepage": "https://www.google.com/chrome/beta/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Google.Chrome.Beta",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Google Chrome Beta"
+      ]
+    },
+    {
+      "key": "librewolf",
+      "name": "LibreWolf",
+      "group": "Browsers",
+      "description": "Privacy-focused Firefox fork",
+      "defaultScope": "Auto",
+      "homepage": "https://librewolf.net/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "LibreWolf.LibreWolf",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "librewolf",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "LibreWolf"
+      ]
+    },
+    {
+      "key": "maxthon",
+      "name": "Maxthon",
+      "group": "Browsers",
+      "description": "Maxthon browser",
+      "defaultScope": "Auto",
+      "homepage": "https://www.maxthon.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Maxthon.Maxthon",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Maxthon"
+      ]
+    },
+    {
+      "key": "edge",
+      "name": "Microsoft Edge",
+      "group": "Browsers",
+      "description": "Microsoft Edge",
+      "defaultScope": "Machine",
+      "homepage": "https://www.microsoft.com/edge",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.Edge",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Microsoft Edge"
+      ]
+    },
+    {
+      "key": "edge-beta",
+      "name": "Microsoft Edge Beta",
+      "group": "Browsers",
+      "description": "Microsoft Edge beta channel",
+      "defaultScope": "Machine",
+      "homepage": "https://www.microsoft.com/edge/download/insider",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.Edge.Beta",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Microsoft Edge Beta"
+      ]
+    },
+    {
+      "key": "firefox",
+      "name": "Mozilla Firefox",
+      "group": "Browsers",
+      "description": "Mozilla Firefox",
+      "defaultScope": "Auto",
+      "homepage": "https://www.mozilla.org/firefox/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Mozilla.Firefox",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "firefox",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Mozilla Firefox"
+      ]
+    },
+    {
+      "key": "firefox-esr",
+      "name": "Mozilla Firefox ESR",
+      "group": "Browsers",
+      "description": "Firefox Extended Support Release",
+      "defaultScope": "Auto",
+      "homepage": "https://www.mozilla.org/firefox/enterprise/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Mozilla.Firefox.ESR",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Mozilla Firefox ESR"
+      ]
+    },
+    {
+      "key": "mullvad-browser",
+      "name": "Mullvad Browser",
+      "group": "Browsers",
+      "description": "Privacy-focused browser built with the Tor Project",
+      "defaultScope": "Auto",
+      "homepage": "https://mullvad.net/en/browser",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "MullvadVPN.MullvadBrowser",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Mullvad Browser"
+      ]
+    },
+    {
+      "key": "opera",
+      "name": "Opera",
+      "group": "Browsers",
+      "description": "Opera browser",
+      "defaultScope": "Auto",
+      "homepage": "https://www.opera.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Opera.Opera",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "opera",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Opera"
+      ]
+    },
+    {
+      "key": "opera-gx",
+      "name": "Opera GX",
+      "group": "Browsers",
+      "description": "Opera gaming browser",
+      "defaultScope": "Auto",
+      "homepage": "https://www.opera.com/gx",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Opera.OperaGX",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Opera GX",
+        "Opera GX Stable"
+      ]
+    },
+    {
+      "key": "pale-moon",
+      "name": "Pale Moon",
+      "group": "Browsers",
+      "description": "Independent browser based on Goanna",
+      "defaultScope": "Auto",
+      "homepage": "https://www.palemoon.org/download.shtml",
+      "sources": [
+        {
+          "type": "manual",
+          "url": "https://www.palemoon.org/download.shtml",
+          "priority": 90
+        }
+      ],
+      "registryNames": [
+        "Pale Moon"
+      ]
+    },
+    {
+      "key": "comet",
+      "name": "Perplexity Comet",
+      "group": "Browsers",
+      "description": "AI browser by Perplexity",
+      "defaultScope": "Auto",
+      "homepage": "https://www.perplexity.ai/comet",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Perplexity.Comet",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Perplexity Comet"
+      ]
+    },
+    {
+      "key": "srware-iron",
+      "name": "SRWare Iron",
+      "group": "Browsers",
+      "description": "Chromium-based privacy browser",
+      "defaultScope": "Auto",
+      "homepage": "https://www.srware.net/iron/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "SRWare.Iron",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "SRWare Iron"
+      ]
+    },
+    {
+      "key": "thorium",
+      "name": "Thorium",
+      "group": "Browsers",
+      "description": "Performance-focused Chromium fork",
+      "defaultScope": "Auto",
+      "homepage": "https://thorium.rocks/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Alex313031.Thorium",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Thorium"
+      ]
+    },
+    {
+      "key": "tor-browser",
+      "name": "Tor Browser",
+      "group": "Browsers",
+      "description": "Tor Project privacy browser",
+      "defaultScope": "User",
+      "homepage": "https://www.torproject.org/download/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "TorProject.TorBrowser",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "tor-browser",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Tor Browser"
+      ]
+    },
+    {
+      "key": "ulaa",
+      "name": "Ulaa",
+      "group": "Browsers",
+      "description": "Privacy-focused Chromium browser by Zoho",
+      "defaultScope": "Auto",
+      "homepage": "https://ulaa.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Zoho.Ulaa",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Ulaa"
+      ]
+    },
+    {
+      "key": "vivaldi",
+      "name": "Vivaldi",
+      "group": "Browsers",
+      "description": "Customizable Chromium browser",
+      "defaultScope": "Auto",
+      "homepage": "https://vivaldi.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Vivaldi.Vivaldi",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "vivaldi",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Vivaldi"
+      ]
+    },
+    {
+      "key": "vivaldi-snapshot",
+      "name": "Vivaldi Snapshot",
+      "group": "Browsers",
+      "description": "Vivaldi snapshot channel",
+      "defaultScope": "Auto",
+      "homepage": "https://vivaldi.com/blog/desktop/snapshots/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Vivaldi.Vivaldi.Snapshot",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Vivaldi Snapshot"
+      ]
+    },
+    {
+      "key": "waterfox",
+      "name": "Waterfox",
+      "group": "Browsers",
+      "description": "Firefox-derived privacy browser",
+      "defaultScope": "Machine",
+      "homepage": "https://www.waterfox.net/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Waterfox.Waterfox",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Waterfox"
+      ]
+    },
+    {
+      "key": "yandex-browser",
+      "name": "Yandex Browser",
+      "group": "Browsers",
+      "description": "Yandex Chromium-based browser",
+      "defaultScope": "User",
+      "homepage": "https://browser.yandex.com/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Yandex.Browser",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Yandex Browser"
+      ]
+    },
+    {
+      "key": "zen-browser",
+      "name": "Zen Browser",
+      "group": "Browsers",
+      "description": "Firefox-based customizable browser",
+      "defaultScope": "Machine",
+      "homepage": "https://zen-browser.app/download/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Zen-Team.Zen-Browser",
+          "priority": 10
+        },
+        {
+          "type": "manual",
+          "url": "https://zen-browser.app/download/",
+          "priority": 90
+        }
+      ],
+      "registryNames": [
+        "Zen Browser"
+      ]
+    },
+    {
+      "key": "dropbox",
+      "name": "Dropbox",
+      "group": "Cloud Storage",
+      "description": "Dropbox desktop sync",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Dropbox.Dropbox",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "dropbox",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Dropbox"
+      ]
+    },
+    {
+      "key": "google-drive",
+      "name": "Google Drive",
+      "group": "Cloud Storage",
+      "description": "Google Drive desktop sync",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Google.GoogleDrive",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "google-drive-file-stream",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Google Drive"
+      ]
+    },
+    {
+      "key": "onedrive",
+      "name": "Microsoft OneDrive",
+      "group": "Cloud Storage",
+      "description": "Microsoft cloud sync",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.OneDrive",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Microsoft OneDrive"
+      ]
+    },
+    {
+      "key": "terabox",
+      "name": "TeraBox",
+      "group": "Cloud Storage",
+      "description": "Cloud storage client",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Baidu.TeraBox",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "TeraBox"
+      ]
+    },
+    {
+      "key": "ayugram",
+      "name": "AyuGram Desktop",
+      "group": "Communication",
+      "description": "Telegram-compatible desktop client",
+      "defaultScope": "Auto",
+      "homepage": "https://github.com/AyuGram/AyuGramDesktop",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "RadolynLabs.AyuGramDesktop",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "AyuGram Desktop"
+      ]
+    },
+    {
+      "key": "discord",
+      "name": "Discord",
+      "group": "Communication",
+      "description": "Voice and text communication",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Discord.Discord",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "discord",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Discord"
+      ]
+    },
+    {
+      "key": "teams",
+      "name": "Microsoft Teams",
+      "group": "Communication",
+      "description": "Microsoft Teams",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.Teams",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Microsoft Teams"
+      ]
+    },
+    {
+      "key": "signal",
+      "name": "Signal",
+      "group": "Communication",
+      "description": "Encrypted messenger",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "OpenWhisperSystems.Signal",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "signal",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Signal"
+      ]
+    },
+    {
+      "key": "slack",
+      "name": "Slack",
+      "group": "Communication",
+      "description": "Team communication",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "SlackTechnologies.Slack",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "slack",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Slack"
+      ]
+    },
+    {
+      "key": "telegram",
+      "name": "Telegram Desktop",
+      "group": "Communication",
+      "description": "Messenger",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Telegram.TelegramDesktop",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "telegram",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Telegram Desktop"
+      ]
+    },
+    {
+      "key": "whatsapp",
+      "name": "WhatsApp",
+      "group": "Communication",
+      "description": "Messenger",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "WhatsApp.WhatsApp",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "WhatsApp"
+      ]
+    },
+    {
+      "key": "zoom",
+      "name": "Zoom Workplace",
+      "group": "Communication",
+      "description": "Video conferencing",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Zoom.Zoom",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "zoom",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Zoom Workplace"
+      ]
+    },
+    {
+      "key": "dotnet-sdk-10",
+      "name": ".NET SDK 10",
+      "group": "Development",
+      "description": ".NET SDK",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.DotNet.SDK.10",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "dotnet-sdk",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        ".NET SDK 10"
+      ]
+    },
+    {
+      "key": "cmake",
+      "name": "CMake",
+      "group": "Development",
+      "description": "Build system generator",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Kitware.CMake",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "cmake",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "CMake"
+      ]
+    },
+    {
+      "key": "dbeaver",
+      "name": "DBeaver Community",
+      "group": "Development",
+      "description": "Database client",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "dbeaver.dbeaver",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "dbeaver",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "DBeaver Community"
+      ]
+    },
+    {
+      "key": "docker-desktop",
+      "name": "Docker Desktop",
+      "group": "Development",
+      "description": "Containers and Docker engine",
+      "defaultScope": "Machine",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Docker.DockerDesktop",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "docker-desktop",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Docker Desktop"
+      ]
+    },
+    {
+      "key": "fd",
+      "name": "fd",
+      "group": "Development",
+      "description": "Fast find replacement",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "sharkdp.fd",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "fd",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "fd"
+      ]
+    },
+    {
+      "key": "ffmpeg",
+      "name": "FFmpeg",
+      "group": "Development",
+      "description": "Multimedia CLI toolkit",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Gyan.FFmpeg",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "ffmpeg",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "FFmpeg"
+      ]
+    },
+    {
+      "key": "fzf",
+      "name": "fzf",
+      "group": "Development",
+      "description": "Fuzzy finder",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "junegunn.fzf",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "fzf",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "fzf"
+      ]
+    },
+    {
+      "key": "git",
+      "name": "Git",
+      "group": "Development",
+      "description": "Git version control",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Git.Git",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "git",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Git"
+      ]
+    },
+    {
+      "key": "gitflow-next",
+      "name": "GitFlow Next",
+      "group": "Development",
+      "description": "Git Flow implementation",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "GitTower.GitFlowNext",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "GitFlow Next"
+      ]
+    },
+    {
+      "key": "github-cli",
+      "name": "GitHub CLI",
+      "group": "Development",
+      "description": "GitHub command line",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "GitHub.cli",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "gh",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "GitHub CLI"
+      ]
+    },
+    {
+      "key": "github-desktop",
+      "name": "GitHub Desktop",
+      "group": "Development",
+      "description": "GitHub desktop client",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "GitHub.GitHubDesktop",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "github-desktop",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "GitHub Desktop"
+      ]
+    },
+    {
+      "key": "golang",
+      "name": "Go",
+      "group": "Development",
+      "description": "Go compiler",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "GoLang.Go",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "golang",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Go"
+      ]
+    },
+    {
+      "key": "insomnia",
+      "name": "Insomnia",
+      "group": "Development",
+      "description": "API client",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Kong.Insomnia",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "insomnia-rest-api-client",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Insomnia"
+      ]
+    },
+    {
+      "key": "jetbrains-toolbox",
+      "name": "JetBrains Toolbox",
+      "group": "Development",
+      "description": "JetBrains product manager",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "JetBrains.Toolbox",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "jetbrainstoolbox",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "JetBrains Toolbox"
+      ]
+    },
+    {
+      "key": "llvm",
+      "name": "LLVM",
+      "group": "Development",
+      "description": "LLVM/Clang toolchain",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "LLVM.LLVM",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "llvm",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "LLVM"
+      ]
+    },
+    {
+      "key": "mariadb",
+      "name": "MariaDB Server",
+      "group": "Development",
+      "description": "MariaDB database server",
+      "defaultScope": "Machine",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "MariaDB.Server",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "mariadb",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "MariaDB Server"
+      ]
+    },
+    {
+      "key": "msys2",
+      "name": "MSYS2",
+      "group": "Development",
+      "description": "Unix-like development environment",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "MSYS2.MSYS2",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "msys2",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "MSYS2"
+      ]
+    },
+    {
+      "key": "mysql",
+      "name": "MySQL Server",
+      "group": "Development",
+      "description": "MySQL database server",
+      "defaultScope": "Machine",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Oracle.MySQL",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "mysql",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "MySQL Server"
+      ]
+    },
+    {
+      "key": "neovim",
+      "name": "Neovim",
+      "group": "Development",
+      "description": "Modal text editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Neovim.Neovim",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "neovim",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Neovim"
+      ]
+    },
+    {
+      "key": "ninja",
+      "name": "Ninja",
+      "group": "Development",
+      "description": "Build system",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Ninja-build.Ninja",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "ninja",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Ninja"
+      ]
+    },
+    {
+      "key": "node",
+      "name": "Node.js Current",
+      "group": "Development",
+      "description": "Node.js current runtime",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "OpenJS.NodeJS",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "nodejs",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Node.js Current"
+      ]
+    },
+    {
+      "key": "node-lts",
+      "name": "Node.js LTS",
+      "group": "Development",
+      "description": "Node.js LTS runtime",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "OpenJS.NodeJS.LTS",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "nodejs-lts",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Node.js",
+        "Node.js LTS"
+      ]
+    },
+    {
+      "key": "notepadplusplus",
+      "name": "Notepad++",
+      "group": "Development",
+      "description": "Text editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Notepad++.Notepad++",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "notepadplusplus",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Notepad++"
+      ]
+    },
+    {
+      "key": "postgresql18",
+      "name": "PostgreSQL 18",
+      "group": "Development",
+      "description": "PostgreSQL database server",
+      "defaultScope": "Machine",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "PostgreSQL.PostgreSQL.18",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "postgresql",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "PostgreSQL 18"
+      ]
+    },
+    {
+      "key": "postman",
+      "name": "Postman",
+      "group": "Development",
+      "description": "API development client",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Postman.Postman",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "postman",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Postman"
+      ]
+    },
+    {
+      "key": "python-312",
+      "name": "Python 3.12",
+      "group": "Development",
+      "description": "Python runtime",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Python.Python.3.12",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Python 3.12"
+      ]
+    },
+    {
+      "key": "python-313",
+      "name": "Python 3.13",
+      "group": "Development",
+      "description": "Python runtime",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Python.Python.3.13",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Python 3.13"
+      ]
+    },
+    {
+      "key": "python-314",
+      "name": "Python 3.14",
+      "group": "Development",
+      "description": "Python runtime",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Python.Python.3.14",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Python 3.14"
+      ]
+    },
+    {
+      "key": "ripgrep",
+      "name": "ripgrep",
+      "group": "Development",
+      "description": "Fast recursive grep",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "BurntSushi.ripgrep.MSVC",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "ripgrep",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "ripgrep"
+      ]
+    },
+    {
+      "key": "rustup",
+      "name": "Rustup",
+      "group": "Development",
+      "description": "Rust toolchain manager",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Rustlang.Rustup",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "rustup.install",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Rustup"
+      ]
+    },
+    {
+      "key": "starship",
+      "name": "Starship",
+      "group": "Development",
+      "description": "Cross-shell prompt",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Starship.Starship",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "starship",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Starship"
+      ]
+    },
+    {
+      "key": "sublime-text",
+      "name": "Sublime Text",
+      "group": "Development",
+      "description": "Text editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "SublimeHQ.SublimeText.4",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "sublimetext4",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Sublime Text"
+      ]
+    },
+    {
+      "key": "vim",
+      "name": "Vim",
+      "group": "Development",
+      "description": "Text editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Vim.Vim",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "vim",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Vim"
+      ]
+    },
+    {
+      "key": "visual-studio-community",
+      "name": "Visual Studio 2022 Community",
+      "group": "Development",
+      "description": "Microsoft IDE",
+      "defaultScope": "Machine",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.VisualStudio.2022.Community",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "visualstudio2022community",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Visual Studio 2022 Community"
+      ]
+    },
+    {
+      "key": "vscode",
+      "name": "Visual Studio Code",
+      "group": "Development",
+      "description": "Code editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.VisualStudioCode",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "vscode",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Microsoft Visual Studio Code",
+        "Microsoft Visual Studio Code (User)",
+        "Visual Studio Code"
+      ]
+    },
+    {
+      "key": "windows-sdk",
+      "name": "Windows SDK 10.0.26100",
+      "group": "Development",
+      "description": "Windows SDK",
+      "defaultScope": "Machine",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.WindowsSDK.10.0.26100",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Windows SDK 10.0.26100"
+      ]
+    },
+    {
+      "key": "autocad",
+      "name": "AutoCAD",
+      "group": "Game Dev & 3D",
+      "description": "Autodesk CAD software",
+      "defaultScope": "Machine",
+      "homepage": "https://www.autodesk.com/products/autocad/overview",
+      "sources": [
+        {
+          "type": "choco",
+          "id": "autocad",
+          "priority": 20
+        },
+        {
+          "type": "manual",
+          "url": "https://www.autodesk.com/products/autocad/overview",
+          "priority": 90
+        }
+      ],
+      "registryNames": [
+        "AutoCAD"
+      ]
+    },
+    {
+      "key": "fusion360",
+      "name": "Autodesk Fusion",
+      "group": "Game Dev & 3D",
+      "description": "Autodesk Fusion CAD/CAM",
+      "defaultScope": "Auto",
+      "homepage": "https://www.autodesk.com/products/fusion-360/personal",
+      "sources": [
+        {
+          "type": "manual",
+          "url": "https://www.autodesk.com/products/fusion-360/personal",
+          "priority": 90
+        }
+      ],
+      "registryNames": [
+        "Autodesk Fusion"
+      ]
+    },
+    {
+      "key": "blender",
+      "name": "Blender",
+      "group": "Game Dev & 3D",
+      "description": "3D modeling, animation and rendering",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "BlenderFoundation.Blender",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "blender",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Blender"
+      ]
+    },
+    {
+      "key": "construct3",
+      "name": "Construct 3",
+      "group": "Game Dev & 3D",
+      "description": "Browser/PWA game engine by Scirra",
+      "defaultScope": "Auto",
+      "homepage": "https://editor.construct.net/",
+      "sources": [
+        {
+          "type": "manual",
+          "url": "https://editor.construct.net/",
+          "priority": 90
+        }
+      ],
+      "registryNames": [
+        "Construct 3"
+      ]
+    },
+    {
+      "key": "epic-launcher",
+      "name": "Epic Games Launcher",
+      "group": "Game Dev & 3D",
+      "description": "Epic Games / Unreal Engine launcher",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "EpicGames.EpicGamesLauncher",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "epicgameslauncher",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Epic Games Launcher"
+      ]
+    },
+    {
+      "key": "freecad",
+      "name": "FreeCAD",
+      "group": "Game Dev & 3D",
+      "description": "Open-source parametric CAD",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "FreeCAD.FreeCAD",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "freecad",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "FreeCAD"
+      ]
+    },
+    {
+      "key": "gdevelop",
+      "name": "GDevelop",
+      "group": "Game Dev & 3D",
+      "description": "No-code/open-source game engine",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "GDevelop.GDevelop",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "GDevelop"
+      ]
+    },
+    {
+      "key": "godot",
+      "name": "Godot Engine",
+      "group": "Game Dev & 3D",
+      "description": "Open-source game engine",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "GodotEngine.GodotEngine",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "godot",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Godot Engine"
+      ]
+    },
+    {
+      "key": "openscad",
+      "name": "OpenSCAD",
+      "group": "Game Dev & 3D",
+      "description": "Script-based CAD",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "OpenSCAD.OpenSCAD",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "openscad",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "OpenSCAD"
+      ]
+    },
+    {
+      "key": "prusaslicer",
+      "name": "PrusaSlicer",
+      "group": "Game Dev & 3D",
+      "description": "3D printing slicer",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Prusa3D.PrusaSlicer",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "prusaslicer",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "PrusaSlicer"
+      ]
+    },
+    {
+      "key": "sketchup-2026",
+      "name": "SketchUp 2026",
+      "group": "Game Dev & 3D",
+      "description": "3D modeling and CAD",
+      "defaultScope": "Machine",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Trimble.SketchUp.2026",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "SketchUp 2026"
+      ]
+    },
+    {
+      "key": "cura",
+      "name": "UltiMaker Cura",
+      "group": "Game Dev & 3D",
+      "description": "3D printing slicer",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Ultimaker.Cura",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "cura-new",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "UltiMaker Cura"
+      ]
+    },
+    {
+      "key": "unity-6000",
+      "name": "Unity 6",
+      "group": "Game Dev & 3D",
+      "description": "Unity 6 editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Unity.Unity.6000",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Unity 6"
+      ]
+    },
+    {
+      "key": "unity-hub",
+      "name": "Unity Hub",
+      "group": "Game Dev & 3D",
+      "description": "Unity version/project manager",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Unity.UnityHub",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Unity Hub"
+      ]
+    },
+    {
+      "key": "ea-app",
+      "name": "EA app",
+      "group": "Gaming",
+      "description": "EA game launcher",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "ElectronicArts.EADesktop",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "ea-app",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "EA app"
+      ]
+    },
+    {
+      "key": "gog-galaxy",
+      "name": "GOG GALAXY",
+      "group": "Gaming",
+      "description": "GOG game launcher",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "GOG.Galaxy",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "goggalaxy",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "GOG GALAXY"
+      ]
+    },
+    {
+      "key": "playnite",
+      "name": "Playnite",
+      "group": "Gaming",
+      "description": "Game library manager",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Playnite.Playnite",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "playnite",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Playnite"
+      ]
+    },
+    {
+      "key": "steam",
+      "name": "Steam",
+      "group": "Gaming",
+      "description": "Steam game launcher",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Valve.Steam",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "steam",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Steam"
+      ]
+    },
+    {
+      "key": "ubisoft-connect",
+      "name": "Ubisoft Connect",
+      "group": "Gaming",
+      "description": "Ubisoft launcher",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Ubisoft.Connect",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "ubisoft-connect",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Ubisoft Connect"
+      ]
+    },
+    {
+      "key": "sketchbook",
+      "name": "Autodesk SketchBook",
+      "group": "Graphics & Design",
+      "description": "Digital drawing application",
+      "defaultScope": "Auto",
+      "homepage": "https://www.sketchbook.com/apps",
+      "sources": [
+        {
+          "type": "manual",
+          "url": "https://www.sketchbook.com/apps",
+          "priority": 90
+        }
+      ],
+      "registryNames": [
+        "Autodesk SketchBook"
+      ]
+    },
+    {
+      "key": "figma",
+      "name": "Figma",
+      "group": "Graphics & Design",
+      "description": "Figma desktop app",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Figma.Figma",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Figma"
+      ]
+    },
+    {
+      "key": "gimp",
+      "name": "GIMP",
+      "group": "Graphics & Design",
+      "description": "Image editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "GIMP.GIMP.3",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "gimp",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "GIMP"
+      ]
+    },
+    {
+      "key": "inkscape",
+      "name": "Inkscape",
+      "group": "Graphics & Design",
+      "description": "Vector graphics editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Inkscape.Inkscape",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "inkscape",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Inkscape"
+      ]
+    },
+    {
+      "key": "krita",
+      "name": "Krita",
+      "group": "Graphics & Design",
+      "description": "Digital painting",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "KDE.Krita",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "krita",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Krita"
+      ]
+    },
+    {
+      "key": "live2d",
+      "name": "Live2D Cubism",
+      "group": "Graphics & Design",
+      "description": "2D character animation",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Live2D.Cubism",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Live2D Cubism"
+      ]
+    },
+    {
+      "key": "paintdotnet",
+      "name": "paint.net",
+      "group": "Graphics & Design",
+      "description": "Image editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "dotPDN.PaintDotNet",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "paint.net",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "paint.net"
+      ]
+    },
+    {
+      "key": "qbittorrent",
+      "name": "qBittorrent",
+      "group": "Internet",
+      "description": "BitTorrent client",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "qBittorrent.qBittorrent",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "qbittorrent",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "qBittorrent"
+      ]
+    },
+    {
+      "key": "audacity",
+      "name": "Audacity",
+      "group": "Media",
+      "description": "Audio editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Audacity.Audacity",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "audacity",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Audacity"
+      ]
+    },
+    {
+      "key": "audiorelay",
+      "name": "AudioRelay",
+      "group": "Media",
+      "description": "Stream audio between devices",
+      "defaultScope": "Auto",
+      "homepage": "https://audiorelay.net/",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "AsaphaHalifa.AudioRelay",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "AudioRelay"
+      ]
+    },
+    {
+      "key": "davinci-resolve",
+      "name": "DaVinci Resolve",
+      "group": "Media",
+      "description": "Professional video editor",
+      "defaultScope": "Auto",
+      "homepage": "https://www.blackmagicdesign.com/products/davinciresolve",
+      "sources": [
+        {
+          "type": "manual",
+          "url": "https://www.blackmagicdesign.com/products/davinciresolve",
+          "priority": 90
+        }
+      ],
+      "registryNames": [
+        "DaVinci Resolve"
+      ]
+    },
+    {
+      "key": "handbrake",
+      "name": "HandBrake",
+      "group": "Media",
+      "description": "Video transcoder",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "HandBrake.HandBrake",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "handbrake",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "HandBrake"
+      ]
+    },
+    {
+      "key": "imagemagick",
+      "name": "ImageMagick",
+      "group": "Media",
+      "description": "Image processing CLI",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "ImageMagick.ImageMagick",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "imagemagick",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "ImageMagick"
+      ]
+    },
+    {
+      "key": "kdenlive",
+      "name": "Kdenlive",
+      "group": "Media",
+      "description": "Video editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "KDE.Kdenlive",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "kdenlive",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Kdenlive"
+      ]
+    },
+    {
+      "key": "mpc-be",
+      "name": "MPC-BE",
+      "group": "Media",
+      "description": "Media player",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "MPC-BE.MPC-BE",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "mpc-be",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "MPC-BE"
+      ]
+    },
+    {
+      "key": "obs-studio",
+      "name": "OBS Studio",
+      "group": "Media",
+      "description": "Streaming and recording",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "OBSProject.OBSStudio",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "obs-studio",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "OBS Studio"
+      ]
+    },
+    {
+      "key": "shotcut",
+      "name": "Shotcut",
+      "group": "Media",
+      "description": "Video editor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Meltytech.Shotcut",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "shotcut",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Shotcut"
+      ]
+    },
+    {
+      "key": "spotify",
+      "name": "Spotify",
+      "group": "Media",
+      "description": "Music streaming",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Spotify.Spotify",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "spotify",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Spotify"
+      ]
+    },
+    {
+      "key": "vlc",
+      "name": "VLC media player",
+      "group": "Media",
+      "description": "Media player",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "VideoLAN.VLC",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "vlc",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "VLC media player"
+      ]
+    },
+    {
+      "key": "yt-dlp",
+      "name": "yt-dlp",
+      "group": "Media",
+      "description": "Media downloader CLI",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "yt-dlp.yt-dlp",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "yt-dlp",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "yt-dlp"
+      ]
+    },
+    {
+      "key": "advanced-ip-scanner",
+      "name": "Advanced IP Scanner",
+      "group": "Network & Remote",
+      "description": "LAN scanner",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Famatech.AdvancedIPScanner",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Advanced IP Scanner"
+      ]
+    },
+    {
+      "key": "anydesk",
+      "name": "AnyDesk",
+      "group": "Network & Remote",
+      "description": "Remote desktop",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "AnyDeskSoftwareGmbH.AnyDesk",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "anydesk",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "AnyDesk"
+      ]
+    },
+    {
+      "key": "cyberduck",
+      "name": "Cyberduck",
+      "group": "Network & Remote",
+      "description": "Cloud storage / SFTP client",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "iterate.Cyberduck",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "cyberduck",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Cyberduck"
+      ]
+    },
+    {
+      "key": "filezilla",
+      "name": "FileZilla Client",
+      "group": "Network & Remote",
+      "description": "FTP/SFTP client",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "TimKosse.FileZilla.Client",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "filezilla",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "FileZilla Client"
+      ]
+    },
+    {
+      "key": "mullvad",
+      "name": "Mullvad VPN",
+      "group": "Network & Remote",
+      "description": "VPN client",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "MullvadVPN.MullvadVPN",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "mullvad-app",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Mullvad VPN"
+      ]
+    },
+    {
+      "key": "protonvpn",
+      "name": "Proton VPN",
+      "group": "Network & Remote",
+      "description": "VPN client",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Proton.ProtonVPN",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "protonvpn",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Proton VPN"
+      ]
+    },
+    {
+      "key": "putty",
+      "name": "PuTTY",
+      "group": "Network & Remote",
+      "description": "SSH and Telnet client",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "PuTTY.PuTTY",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "putty",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "PuTTY"
+      ]
+    },
+    {
+      "key": "radmin-vpn",
+      "name": "Radmin VPN",
+      "group": "Network & Remote",
+      "description": "Virtual LAN/VPN",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Famatech.RadminVPN",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Radmin VPN"
+      ]
+    },
+    {
+      "key": "rclone",
+      "name": "rclone",
+      "group": "Network & Remote",
+      "description": "Cloud storage sync CLI",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Rclone.Rclone",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "rclone",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "rclone"
+      ]
+    },
+    {
+      "key": "rustdesk",
+      "name": "RustDesk",
+      "group": "Network & Remote",
+      "description": "Remote desktop",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "RustDesk.RustDesk",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "rustdesk",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "RustDesk"
+      ]
+    },
+    {
+      "key": "tailscale",
+      "name": "Tailscale",
+      "group": "Network & Remote",
+      "description": "Mesh VPN",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Tailscale.Tailscale",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "tailscale",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Tailscale"
+      ]
+    },
+    {
+      "key": "teamviewer",
+      "name": "TeamViewer",
+      "group": "Network & Remote",
+      "description": "Remote desktop",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "TeamViewer.TeamViewer",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "teamviewer",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "TeamViewer"
+      ]
+    },
+    {
+      "key": "winscp",
+      "name": "WinSCP",
+      "group": "Network & Remote",
+      "description": "SFTP/SCP client",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "WinSCP.WinSCP",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "winscp",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "WinSCP"
+      ]
+    },
+    {
+      "key": "wireguard",
+      "name": "WireGuard",
+      "group": "Network & Remote",
+      "description": "WireGuard VPN",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "WireGuard.WireGuard",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "wireguard",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "WireGuard"
+      ]
+    },
+    {
+      "key": "wireshark",
+      "name": "Wireshark",
+      "group": "Network & Remote",
+      "description": "Network protocol analyzer",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "WiresharkFoundation.Wireshark",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "wireshark",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Wireshark"
+      ]
+    },
+    {
+      "key": "zerotier",
+      "name": "ZeroTier One",
+      "group": "Network & Remote",
+      "description": "Virtual network",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "ZeroTier.ZeroTierOne",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "zerotier-one",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "ZeroTier One"
+      ]
+    },
+    {
+      "key": "acrobat-reader",
+      "name": "Adobe Acrobat Reader",
+      "group": "Productivity",
+      "description": "PDF reader",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Adobe.Acrobat.Reader.64-bit",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "adobereader",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Adobe Acrobat Reader"
+      ]
+    },
+    {
+      "key": "libreoffice",
+      "name": "LibreOffice",
+      "group": "Productivity",
+      "description": "Office suite",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "TheDocumentFoundation.LibreOffice",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "libreoffice-fresh",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "LibreOffice"
+      ]
+    },
+    {
+      "key": "notion",
+      "name": "Notion",
+      "group": "Productivity",
+      "description": "Workspace and notes",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Notion.Notion",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "notion",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Notion"
+      ]
+    },
+    {
+      "key": "obsidian",
+      "name": "Obsidian",
+      "group": "Productivity",
+      "description": "Markdown knowledge base",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Obsidian.Obsidian",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "obsidian",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Obsidian"
+      ]
+    },
+    {
+      "key": "onlyoffice",
+      "name": "ONLYOFFICE Desktop Editors",
+      "group": "Productivity",
+      "description": "Office suite",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "ONLYOFFICE.DesktopEditors",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "onlyoffice",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "ONLYOFFICE Desktop Editors"
+      ]
+    },
+    {
+      "key": "sumatrapdf",
+      "name": "SumatraPDF",
+      "group": "Productivity",
+      "description": "Lightweight PDF reader",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "SumatraPDF.SumatraPDF",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "sumatrapdf",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "SumatraPDF"
+      ]
+    },
+    {
+      "key": "bitwarden",
+      "name": "Bitwarden",
+      "group": "Security",
+      "description": "Password manager",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Bitwarden.Bitwarden",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "bitwarden",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Bitwarden"
+      ]
+    },
+    {
+      "key": "keepassxc",
+      "name": "KeePassXC",
+      "group": "Security",
+      "description": "Offline password manager",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "KeePassXCTeam.KeePassXC",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "keepassxc",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "KeePassXC"
+      ]
+    },
+    {
+      "key": "malwarebytes",
+      "name": "Malwarebytes",
+      "group": "Security",
+      "description": "Malware scanner",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Malwarebytes.Malwarebytes",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "malwarebytes",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Malwarebytes"
+      ]
+    },
+    {
+      "key": "7zip",
+      "name": "7-Zip",
+      "group": "System & Utilities",
+      "description": "Archive manager",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "7zip.7zip",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "7zip",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "7-Zip"
+      ]
+    },
+    {
+      "key": "autoruns",
+      "name": "Autoruns",
+      "group": "System & Utilities",
+      "description": "Startup manager",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.Sysinternals.Autoruns",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "autoruns",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Autoruns"
+      ]
+    },
+    {
+      "key": "etcher",
+      "name": "balenaEtcher",
+      "group": "System & Utilities",
+      "description": "Flash OS images to drives",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Balena.Etcher",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "etcher",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "balenaEtcher"
+      ]
+    },
+    {
+      "key": "cpu-z",
+      "name": "CPU-Z",
+      "group": "System & Utilities",
+      "description": "CPU and platform information",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "CPUID.CPU-Z",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "cpu-z",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "CPU-Z"
+      ]
+    },
+    {
+      "key": "crystaldiskinfo",
+      "name": "CrystalDiskInfo",
+      "group": "System & Utilities",
+      "description": "Disk health monitor",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "CrystalDewWorld.CrystalDiskInfo",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "crystaldiskinfo",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "CrystalDiskInfo"
+      ]
+    },
+    {
+      "key": "crystaldiskmark",
+      "name": "CrystalDiskMark",
+      "group": "System & Utilities",
+      "description": "Disk benchmark",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "CrystalDewWorld.CrystalDiskMark",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "crystaldiskmark",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "CrystalDiskMark"
+      ]
+    },
+    {
+      "key": "eartrumpet",
+      "name": "EarTrumpet",
+      "group": "System & Utilities",
+      "description": "Advanced volume mixer",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "File-New-Project.EarTrumpet",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "EarTrumpet"
+      ]
+    },
+    {
+      "key": "everything",
+      "name": "Everything",
+      "group": "System & Utilities",
+      "description": "Fast file search",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "voidtools.Everything",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "everything",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Everything"
+      ]
+    },
+    {
+      "key": "geek-uninstaller",
+      "name": "Geek Uninstaller",
+      "group": "System & Utilities",
+      "description": "Application uninstaller",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "GeekUninstaller.GeekUninstaller",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "geekuninstaller",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Geek Uninstaller"
+      ]
+    },
+    {
+      "key": "gpu-z",
+      "name": "GPU-Z",
+      "group": "System & Utilities",
+      "description": "GPU information utility",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "TechPowerUp.GPU-Z",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "gpu-z",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "GPU-Z"
+      ]
+    },
+    {
+      "key": "greenshot",
+      "name": "Greenshot",
+      "group": "System & Utilities",
+      "description": "Screenshot utility",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Greenshot.Greenshot",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "greenshot",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Greenshot"
+      ]
+    },
+    {
+      "key": "hwinfo",
+      "name": "HWiNFO",
+      "group": "System & Utilities",
+      "description": "Hardware monitoring and information",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "REALiX.HWiNFO",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "hwinfo",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "HWiNFO"
+      ]
+    },
+    {
+      "key": "memreduct",
+      "name": "Mem Reduct",
+      "group": "System & Utilities",
+      "description": "Memory management utility",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Henry++.MemReduct",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Mem Reduct"
+      ]
+    },
+    {
+      "key": "app-installer",
+      "name": "Microsoft App Installer / WinGet",
+      "group": "System & Utilities",
+      "description": "Microsoft App Installer package containing WinGet",
+      "defaultScope": "User",
+      "homepage": "https://apps.microsoft.com/detail/9nblggh4nns1",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.AppInstaller",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Microsoft App Installer / WinGet"
+      ]
+    },
+    {
+      "key": "powertoys",
+      "name": "Microsoft PowerToys",
+      "group": "System & Utilities",
+      "description": "Microsoft Windows utility suite",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.PowerToys",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "powertoys",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Microsoft PowerToys",
+        "PowerToys (Preview)"
+      ]
+    },
+    {
+      "key": "ncalayer",
+      "name": "NCALayer",
+      "group": "System & Utilities",
+      "description": "NCALayer utility",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "PKI.NCALayer",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "NCALayer"
+      ]
+    },
+    {
+      "key": "open-shell",
+      "name": "Open-Shell",
+      "group": "System & Utilities",
+      "description": "Classic Start menu",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Open-Shell.Open-Shell-Menu",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "open-shell",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Open-Shell"
+      ]
+    },
+    {
+      "key": "peazip",
+      "name": "PeaZip",
+      "group": "System & Utilities",
+      "description": "Archive manager",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Giorgiotani.Peazip",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "peazip",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "PeaZip"
+      ]
+    },
+    {
+      "key": "powershell",
+      "name": "PowerShell 7",
+      "group": "System & Utilities",
+      "description": "Cross-platform PowerShell",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.PowerShell",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "powershell-core",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "PowerShell 7",
+        "PowerShell"
+      ]
+    },
+    {
+      "key": "process-explorer",
+      "name": "Process Explorer",
+      "group": "System & Utilities",
+      "description": "Advanced process viewer",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.Sysinternals.ProcessExplorer",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "procexp",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Process Explorer"
+      ]
+    },
+    {
+      "key": "rainmeter",
+      "name": "Rainmeter",
+      "group": "System & Utilities",
+      "description": "Desktop customization",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Rainmeter.Rainmeter",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "rainmeter",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Rainmeter"
+      ]
+    },
+    {
+      "key": "revo-uninstaller",
+      "name": "Revo Uninstaller",
+      "group": "System & Utilities",
+      "description": "Application uninstaller",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "RevoUninstaller.RevoUninstaller",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "revo-uninstaller",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Revo Uninstaller"
+      ]
+    },
+    {
+      "key": "rufus",
+      "name": "Rufus",
+      "group": "System & Utilities",
+      "description": "Bootable USB creator",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Rufus.Rufus",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "rufus",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Rufus"
+      ]
+    },
+    {
+      "key": "sharex",
+      "name": "ShareX",
+      "group": "System & Utilities",
+      "description": "Screenshot and capture utility",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "ShareX.ShareX",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "sharex",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "ShareX"
+      ]
+    },
+    {
+      "key": "superfile",
+      "name": "superfile",
+      "group": "System & Utilities",
+      "description": "Terminal file manager",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "yorukot.superfile",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "superfile"
+      ]
+    },
+    {
+      "key": "sysinternals",
+      "name": "Sysinternals Suite",
+      "group": "System & Utilities",
+      "description": "Microsoft diagnostic utilities",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.Sysinternals.Suite",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "sysinternals",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Sysinternals Suite"
+      ]
+    },
+    {
+      "key": "ventoy",
+      "name": "Ventoy",
+      "group": "System & Utilities",
+      "description": "Multiboot USB tool",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Ventoy.Ventoy",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "ventoy",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "Ventoy"
+      ]
+    },
+    {
+      "key": "windirstat",
+      "name": "WinDirStat",
+      "group": "System & Utilities",
+      "description": "Disk usage analyzer",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "WinDirStat.WinDirStat",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "windirstat",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "WinDirStat"
+      ]
+    },
+    {
+      "key": "windows-terminal",
+      "name": "Windows Terminal",
+      "group": "System & Utilities",
+      "description": "Modern Windows terminal",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "Microsoft.WindowsTerminal",
+          "priority": 10
+        }
+      ],
+      "registryNames": [
+        "Windows Terminal"
+      ]
+    },
+    {
+      "key": "winrar",
+      "name": "WinRAR",
+      "group": "System & Utilities",
+      "description": "Archive manager",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "RARLab.WinRAR",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "winrar",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "WinRAR"
+      ]
+    },
+    {
+      "key": "wiztree",
+      "name": "WizTree",
+      "group": "System & Utilities",
+      "description": "Fast disk usage analyzer",
+      "defaultScope": "Auto",
+      "homepage": "",
+      "sources": [
+        {
+          "type": "winget",
+          "id": "AntibodySoftware.WizTree",
+          "priority": 10
+        },
+        {
+          "type": "choco",
+          "id": "wiztree",
+          "priority": 20
+        }
+      ],
+      "registryNames": [
+        "WizTree"
+      ]
+    }
+  ]
+}
